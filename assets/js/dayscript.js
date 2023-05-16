@@ -1,16 +1,16 @@
 // Loads HTML before JS executes
 $(document).ready(function(){
 
-// Use the $ prefix for jQuery objects for clarity
+// Use the $ prefix for jQuery objects 
 const $currentDay = $('#currentDay');
 const saveButton = $('button');
 const alertList = $('.alert');
 const alerts = alertList.map((i, element) => new bootstrap.Alert(element)).get();
 
-// Use object destructuring to get localStorageMap or an empty array if it's not set
+// Use object destructuring to get localStorageMap or an empty array if not set
 const localStorageMap = JSON.parse(localStorage.getItem('map')) || {};
 
-// Use object spread syntax to merge localStorageMap and bodyOb, which is now an empty object
+// Use object spread to merge localStorageMap and bodyOb, which is now an empty object
 const mergedStorage = { ...localStorageMap, ...{} };
 
 function saveLocalStorage(bodyText, id) {
@@ -35,7 +35,7 @@ function saveEvent(event) {
 }
 
 function checkTime() {
-  // Use a template literal to set the text for $currentDay
+  // Use a template literal to set text for $currentDay
   $currentDay.text(`${dayjs().format('dddd, MMMM D, hh:mm:ss a')}`);
 
   for (let i = 9; i <= 17; i++) {
